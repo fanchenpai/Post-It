@@ -1,0 +1,18 @@
+<h3><%= @post.title %></h3>
+
+<%= link_to @post.url, @post.url %>
+
+<p>
+  <%= @post.description %><br><br>
+  <span class="quiet">Created by: <%= @post.creator.username %></span>
+</p>
+<p></p>
+<p>
+  <h5><u>Comments</u></h5>
+  <% @post.comments.each do |c| %>
+    <b><%= c.creator.username %> </b>
+    <%= c.body %>
+  <% end %>
+</p>
+
+<%= link_to "Back", posts_path %>
