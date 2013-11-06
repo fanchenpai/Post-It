@@ -1,6 +1,3 @@
-<h3>Welcome!</h3>
-
-<p>This is the Postit template. You've access the PostsController, index action. This is the index template. Find me under app/views/posts folder.</p>
 
 <%= link_to "Create a post", new_post_path, class: "btn" %>
 
@@ -21,3 +18,14 @@
 <% end %>
 
 </div>
+
+<hr>
+
+<h4>Categories</h4>
+<ul>
+<% @categories.each do |c| %>
+  <li><%= c.name %></li>
+<% end %>
+</ul>
+
+<%= link_to "Create a category", new_category_path, class: "btn" %>
