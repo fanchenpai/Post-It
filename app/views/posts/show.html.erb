@@ -4,14 +4,19 @@
 
 <p>
   <%= @post.description %><br><br>
-  <span class="quiet">Created by: <%= @post.creator.username %></span>
+  <span class="quiet"><%= @post.creator.username unless @post.creator.nil? %></span>
 </p>
 <p></p>
+<hr>
+<%= render "comments/form" %>
+
 <p>
-  <h5><u>Comments</u></h5>
+
   <% @post.comments.each do |c| %>
-    <b><%= c.creator.username %> </b>
-    <%= c.body %>
+    <div>
+      <b><%= c.creator.username unless c.creator.nil? %> </b>
+      <%= c.body %>
+    </div>
   <% end %>
 </p>
 

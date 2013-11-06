@@ -4,8 +4,8 @@
 <div class="well">
 <% @posts.each do |p| %>
   <p>
-    <b><%= p.title %></b>
-    [<%= link_to "edit", edit_post_path(p) %>]
+    <b><%= link_to p.title, post_path(p) %></b>
+    <%= link_to "edit", edit_post_path(p), class: "btn" %>
     <br>
     <%= link_to p.url, p.url %><br>
     <%= p.description %><br>
