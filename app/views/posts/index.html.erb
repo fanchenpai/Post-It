@@ -2,15 +2,22 @@
 
 <p>This is the Postit template. You've access the PostsController, index action. This is the index template. Find me under app/views/posts folder.</p>
 
+<%= link_to "Create a post", new_post_path, class: "btn" %>
+
+<div class="well">
 <% @posts.each do |p| %>
   <p>
-    <b><%= p.title %></b><br>
+    <b><%= p.title %></b>
+    [<%= link_to "edit", edit_post_path(p) %>]
+    <br>
     <%= link_to p.url, p.url %><br>
     <%= p.description %><br>
-    <span class="quiet">Created by: <%= p.creator.username%></span>
+    <span class="quiet"><%= p.creator.username unless p.creator.nil?%></span>
     <div>
       <%= link_to "#{p.comments.size} comments", post_path(p) %>
     </div>
   </p>
 
 <% end %>
+
+</div>
