@@ -1,7 +1,14 @@
 <h4>All posts</h4>
-
-<%= render @posts %>
-
+<% @posts.each do |post| %>
+  <div class="well">
+    <%= link_to "edit", edit_post_path(post), class: "btn btn-mini pull-right" %>
+    <%= render post %>
+    <div><%= render post.categories %></div>
+    <div>
+      <%= link_to "#{post.comments.size} comments", post_path(post) %>
+    </div>
+  </div>
+<% end %>
 <hr>
 
 <h4>Categories</h4>

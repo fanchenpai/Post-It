@@ -1,26 +1,16 @@
-<h3><%= @post.title %></h3>
-
-<%= link_to @post.url, @post.url %>
-
-<p>
-  <%= @post.description %><br><br>
-  <span class="quiet"><%= @post.creator.username unless @post.creator.nil? %></span>
-</p>
-<p>
+<div>
+  <div class="pull-right">
+    <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-small" %>
+  </div>
+  <%= render @post %>
   <%= render @post.categories %>
-</p>
-<hr>
+</div>
+<hr />
+
 <%= render "comments/form" %>
 
-<p>
-
-  <% @post.comments.each do |c| %>
-    <div>
-      <b><%= c.creator.username unless c.creator.nil? %> </b>
-      <%= display_datetime(c.updated_at) %>
-      <%= c.body %>
-    </div>
-  <% end %>
-</p>
+<div class="container-fluid">
+  <%= render @post.comments%>
+</div>
 
 <%= link_to "Back", posts_path %>

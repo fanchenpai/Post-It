@@ -1,0 +1,10 @@
+<div class="row-fluid">
+  <div class="span3">
+    <b><%= comment.creator.username unless comment.creator.nil? %></b>
+    <br />
+    <%= display_datetime(comment.updated_at) %>
+  </div>
+  <div class="span7">
+    <%= comment.body %>
+  </div>
+</div>
