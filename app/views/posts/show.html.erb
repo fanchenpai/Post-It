@@ -6,7 +6,9 @@
   <%= @post.description %><br><br>
   <span class="quiet"><%= @post.creator.username unless @post.creator.nil? %></span>
 </p>
-<p></p>
+<p>
+  <%= render @post.categories %>
+</p>
 <hr>
 <%= render "comments/form" %>
 
@@ -15,6 +17,7 @@
   <% @post.comments.each do |c| %>
     <div>
       <b><%= c.creator.username unless c.creator.nil? %> </b>
+      <%= display_datetime(c.updated_at) %>
       <%= c.body %>
     </div>
   <% end %>

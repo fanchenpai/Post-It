@@ -1,0 +1,16 @@
+    <div class="well">
+      <h4>
+        <b><%= link_to post.title, post_path(post) %></b>
+        <%= link_to "edit", edit_post_path(post), class: "btn btn-mini" %>
+      </h4>
+      <%= link_to post.url, fix_url(post.url) %><br>
+      <%= post.description %><br>
+      <div class="quiet">
+        <%= post.creator.username unless post.creator.nil?%>
+        <%= display_datetime(post.updated_at) %>
+      </div>
+      <div><%= render post.categories %></div>
+      <div>
+        <%= link_to "#{post.comments.size} comments", post_path(post) %>
+      </div>
+    </div>

@@ -1,31 +1,10 @@
+<h4>All posts</h4>
 
-<%= link_to "Create a post", new_post_path, class: "btn" %>
-
-<div class="well">
-<% @posts.each do |p| %>
-  <p>
-    <b><%= link_to p.title, post_path(p) %></b>
-    <%= link_to "edit", edit_post_path(p), class: "btn" %>
-    <br>
-    <%= link_to p.url, p.url %><br>
-    <%= p.description %><br>
-    <span class="quiet"><%= p.creator.username unless p.creator.nil?%></span>
-    <div>
-      <%= link_to "#{p.comments.size} comments", post_path(p) %>
-    </div>
-  </p>
-
-<% end %>
-
-</div>
+<%= render @posts %>
 
 <hr>
 
 <h4>Categories</h4>
-<ul>
-<% @categories.each do |c| %>
-  <li><%= c.name %></li>
-<% end %>
-</ul>
-
+<%= render @categories %>
+<br>
 <%= link_to "Create a category", new_category_path, class: "btn" %>

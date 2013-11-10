@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.create(category_params)
+    @category = Category.new(category_params)
     if @category.save
       flash[:notice] = "New category was created."
       redirect_to posts_path
@@ -14,6 +14,9 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def show
+    @category = Category.find(params[:id])
+  end
 
   private
 

@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(version: 20131103192551) do
   end
 
   create_table "comments", force: true do |t|
-    t.string  "body"
-    t.integer "user_id"
-    t.integer "post_id"
+    t.string   "body"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "post_categories", force: true do |t|
