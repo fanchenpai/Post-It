@@ -1,4 +1,4 @@
-<div>
+<div class="hero-unit">
   <div class="pull-right">
     <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-small" %>
   </div>
@@ -12,5 +12,3 @@
 <div class="container-fluid">
   <%= render @post.comments%>
 </div>
-
-<%= link_to "Back", posts_path %>

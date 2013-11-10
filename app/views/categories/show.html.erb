@@ -1,2 +1,9 @@
-<h4><%= link_to "All posts", posts_path %> > <%= @category.name %></h4>
+<ul class="breadcrumb">
+  <li>
+    <%= link_to "All posts", posts_path %>
+    <span class="divider">&gt;</span>
+  </li>
+  <li class="active"><%= @category.name %></li>
+</ul>
+
 <%= render @category.posts %>

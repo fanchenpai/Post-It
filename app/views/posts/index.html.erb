@@ -1,4 +1,7 @@
-<h4>All posts</h4>
+<ul class="breadcrumb">
+  <li class="active">All posts</li>
+</ul>
+
 <% @posts.each do |post| %>
   <div class="well">
     <%= link_to "edit", edit_post_path(post), class: "btn btn-mini pull-right" %>
