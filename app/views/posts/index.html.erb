@@ -3,18 +3,5 @@
 </ul>
 
 <% @posts.each do |post| %>
-  <div class="well">
-    <%= link_to "edit", edit_post_path(post), class: "btn btn-mini pull-right" %>
-    <%= render post %>
-    <div><%= render post.categories %></div>
-    <div>
-      <%= link_to "#{post.comments.size} comments", post_path(post) %>
-    </div>
-  </div>
+ <%= render 'post_block', post: post %>
 <% end %>
-<hr>
-
-<h4>Categories</h4>
-<%= render @categories %>
-<br>
-<%= link_to "Create a category", new_category_path, class: "btn" %>

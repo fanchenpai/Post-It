@@ -6,4 +6,6 @@
   <li class="active"><%= @category.name %></li>
 </ul>
 
-<%= render @category.posts %>
+<% @category.posts.each do |post| %>
+  <%= render 'posts/post_block', post: post %>
+<% end %>
