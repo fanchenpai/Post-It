@@ -1,5 +1,6 @@
 <div class="well">
-  <%= link_to "edit", edit_post_path(post), class: "btn btn-mini pull-right" %>
+
+  <%= link_to "edit", edit_post_path(post), class: "btn btn-mini pull-right" if logged_in? %>
   <%= render post %>
   <div><%= render post.categories %></div>
   <div>

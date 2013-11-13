@@ -1,13 +1,14 @@
 <div class="hero-unit">
   <div class="pull-right">
-    <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-small" %>
+    <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-small" if logged_in? %>
   </div>
   <%= render @post %>
   <%= render @post.categories %>
 </div>
 <hr />
 
-<%= render "comments/form" %>
+<h4>Comments</h4>
+<%= render "comments/form" if logged_in? %>
 
 <div class="container-fluid">
   <%= render @post.comments%>
