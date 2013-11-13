@@ -3,4 +3,6 @@ class User < ActiveRecord::Base
   has_many :comments
 
   has_secure_password validations: false
+
+  validates :username, uniqueness: { case_sensitive: false}
 end
