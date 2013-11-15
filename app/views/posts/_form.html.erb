@@ -2,11 +2,11 @@
 
 <%= form_for @post do |f| %>
 
-  <%= f.label :title, "Title" %>
+  <%= f.label :title %>
   <%= f.text_field :title %>
-  <%= f.label :url, "Url" %>
+  <%= f.label :url %>
   <%= f.text_field :url %>
-  <%= f.label :description, "Description" %>
+  <%= f.label :description %>
   <%= f.text_area :description %>
   <br />
   <%= f.collection_check_boxes(:category_ids, @categories, :id, :name) do |b| %>

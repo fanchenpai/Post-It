@@ -53,3 +53,8 @@ div.comment_votes {
 .navbar-inverse .brand:hover, .navbar-inverse .brand:focus, .navbar-inverse .nav > li > a:hover, .navbar-inverse .nav > li > a:focus {
   color: #ffffcc;
 }
+
+.navbar a.brand {
+  font-weight: bold;
+  font-family: Georgia, sans-serif;
+}

@@ -38,6 +38,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def vote
+
+    # flash[:notice] = "Your vote is counted."
+    # redirect_to :back
+  end
+
+
   private
 
   def post_params
