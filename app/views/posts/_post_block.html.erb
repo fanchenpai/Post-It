@@ -4,6 +4,8 @@
       <i class="icon-chevron-up"></i>
     <% end %>
     <br />
+    <%= post.votes.size %>
+    <br />
     <%= link_to vote_post_path(post), method: 'post', data: {vote: false} do %>
     <i class="icon-chevron-down"></i>
     <% end %>

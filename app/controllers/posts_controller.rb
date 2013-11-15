@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update, :vote]
   before_action :require_user, except: [:index, :show]
 
   def index
@@ -39,9 +39,13 @@ class PostsController < ApplicationController
   end
 
   def vote
-
-    # flash[:notice] = "Your vote is counted."
-    # redirect_to :back
+    @vote = Vote.create(vote: params[vote], creator: current_user, votable: @post)
+    if @vote.valid?
+      flash[:notice] = "Your vote is counted."
+    else
+      flash[:error] = "Your vote is not counted."
+    end
+    redirect_to :back
   end
 
 
