@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_categories
   before_filter :current_user
+  helper_method :current_user, :logged_in?
 
   def set_categories
     @categories = Category.all
@@ -14,6 +15,15 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def logged_in?
+    !!current_user
+  end
 
+  def require_user
+    if !logged_in?
+      flash[:error] = "Must be logged in to do that."
+      redirect_to login_path
+    end
+  end
 
 end

@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
 
 	def new
     @user = User.new
-    render 'users/login'
 	end
 
 	def create
@@ -11,8 +10,9 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to posts_path
     else
+      @user = User.new(username: params[:user][:username])
       flash[:error] = "There's something wrong with your username/password."
-      redirect_to login_path
+      render 'sessions/new'
     end
 
 	end

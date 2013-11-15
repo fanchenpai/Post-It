@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :require_user, except: [:new, :create]
+
   def new
     @user = User.new
   end
@@ -10,8 +12,16 @@ class UsersController < ApplicationController
       flash[:notice] = "Your account has been created. Welcome aboard!"
       redirect_to login_path
     else
-      render 'users/new'
+      render :new
     end
+  end
+
+  def edit
+
+  end
+
+  def update
+
   end
 
   private

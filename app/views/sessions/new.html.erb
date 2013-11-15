@@ -1,0 +1,11 @@
+<div class="well">
+  <h4>Please Log In</h4>
+  <%= form_for @user, url: login_path do |f| %>
+    <%= f.label :username, 'Username' %>
+    <%= f.text_field :username %>
+    <%= f.label :password, 'Password' %>
+    <%= f.password_field :password %>
+    <br />
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>

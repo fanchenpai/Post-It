@@ -7,8 +7,5 @@ module ApplicationHelper
     dt.strftime("%m/%d/%Y %l:%M %p %Z")
   end
 
-  def logged_in?
-    !!@current_user
-  end
 
 end
