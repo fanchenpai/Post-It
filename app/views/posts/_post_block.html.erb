@@ -1,14 +1,9 @@
 <div class="row">
   <div class="well span1 text-center">
-    <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
-      <i class="icon-chevron-up"></i>
-    <% end %>
-    <br />
-    <%= count_votes(post.votes) %>
-    <br />
-    <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
-      <i class="icon-chevron-down"></i>
-    <% end %>
+    <%= render 'shared/vote_block',
+          link_up: vote_post_path(post, vote: true),
+          link_down: vote_post_path(post, vote: false),
+          votes: post.votes  %>
   </div>
 
   <div class="well span6">

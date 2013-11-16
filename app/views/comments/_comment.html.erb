@@ -1,10 +1,13 @@
-<div class="row-fluid">
-  <div class="span3">
-    <b><%= comment.creator.username unless comment.creator.nil? %></b>
-    <br />
-    <%= display_datetime(comment.updated_at) %>
+<div class="row">
+  <div class="well span1 text-center">
+    <%= render 'shared/vote_block',
+          link_up: vote_post_comment_path(comment.post, comment, vote: true),
+          link_down: vote_post_comment_path(comment.post, comment, vote: false),
+          votes: comment.votes  %>
   </div>
-  <div class="span7">
+  <div class="well span7">
+    <b><%= comment.creator.username %></b>
+    at <%= display_datetime(comment.updated_at) %><br />
     <%= comment.body %>
   </div>
 </div>

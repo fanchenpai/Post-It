@@ -3,7 +3,7 @@
     <%= link_to "All posts", posts_path %>
     <span class="divider">&gt;</span>
   </li>
-  <li class="active"><%= @category.name %></li>
+  <li class="active"><%= render @category %></li>
 </ul>
 
 <% @category.posts.each do |post| %>
