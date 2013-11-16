@@ -1,1 +1,14 @@
-User Profile
+<h4>User Profile</h4>
+<b>Username: </b><%= current_user.username %>
+
+<hr />
+
+<h3>Posts</h3>
+<% current_user.posts.each do |post| %>
+  <%= render 'posts/post_block', post: post %>
+<% end %>
+
+<hr />
+
+<h3>Comments</h3>
+<%= render current_user.comments, show_post_title: true%>

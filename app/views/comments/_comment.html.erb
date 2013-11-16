@@ -7,7 +7,10 @@
   </div>
   <div class="well span7">
     <b><%= comment.creator.username %></b>
-    at <%= display_datetime(comment.updated_at) %><br />
-    <%= comment.body %>
+    <%= time_ago_in_words(comment.updated_at) %> ago<br />
+    "<%= comment.body %>"
+    <% if show_post_title %>
+      on <%= link_to comment.post.title, post_path(comment.post) %>
+    <% end %>
   </div>
 </div>

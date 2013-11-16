@@ -11,5 +11,5 @@
 <%= render "comments/form" if logged_in? %>
 
 <div class="container-fluid">
-  <%= render @post.comments%>
+  <%= render @post.comments, show_post_title: false%>
 </div>

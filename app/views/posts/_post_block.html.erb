@@ -7,11 +7,14 @@
   </div>
 
   <div class="well span6">
-    <%= link_to "edit", edit_post_path(post), class: "btn btn-mini pull-right" if logged_in? %>
-    <%= render post %>
     <div><%= render post.categories %></div>
-    <div>
-      <%= link_to "#{post.comments.size} comments", post_path(post) %>
+    <% if logged_in? && post.creator == current_user %>
+      <%= link_to "edit", edit_post_path(post), class: "btn btn-mini pull-right" %>
+    <% end %>
+    <%= render post %>
+
+    <div class="pull-right">
+      <%= link_to pluralize(post.comments.size, 'comment'), post_path(post) %>
     </div>
   </div>
 </div>

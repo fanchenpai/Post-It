@@ -1,10 +1,9 @@
-
 <h4>
   <b><%= link_to post.title, post_path(post) %></b>
 </h4>
 <%= link_to fix_url(post.url), fix_url(post.url) %><br>
 <%= post.description %><br>
-<div class="quiet">
-  <%= post.creator.username unless post.creator.nil?%>
-  <%= display_datetime(post.updated_at) %>
+<div>
+  -- by <%= link_to post.creator.username, profile_path(post.creator) %>
+  <%= time_ago_in_words(post.updated_at) %> ago
 </div>
