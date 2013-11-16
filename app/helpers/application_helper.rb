@@ -7,5 +7,10 @@ module ApplicationHelper
     dt.strftime("%m/%d/%Y %l:%M %p %Z")
   end
 
+  def count_votes(arr)
+    up_vote = arr.select {|v| v.vote }
+    down_vote = arr.select {|v| !v.vote }
+    0 + up_vote.size - down_vote.size
+  end
 
 end
