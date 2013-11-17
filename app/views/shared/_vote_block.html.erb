@@ -1,13 +1,15 @@
 <% if logged_in? %>
-  <%= link_to link_up, method: 'post', class: 'btn btn-mini' do %>
-    <i class="icon-chevron-up"></i>
-  <% end %>
-  <br />
+  <div>
+    <%= link_to link_up, method: 'post', class: 'btn btn-mini' do %>
+      <i class="icon-chevron-up"></i>
+    <% end %>
+  </div>
 <% end %>
 <%= pluralize(count_votes(votes), 'vote') %>
 <% if logged_in? %>
-  <br />
-  <%= link_to link_down, method: 'post', class: 'btn btn-mini' do %>
-    <i class="icon-chevron-down"></i>
-  <% end %>
+  <div>
+    <%= link_to link_down, method: 'post', class: 'btn btn-mini' do %>
+      <i class="icon-chevron-down"></i>
+    <% end %>
+  </div>
 <% end %>
