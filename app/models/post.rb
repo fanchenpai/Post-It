@@ -7,4 +7,14 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true
   validates :url, presence: true
+  before_save :generate_slug
+
+  def to_param
+    self.slug
+  end
+
+  def generate_slug
+    self.slug = "#{self.id}-#{self.title.parameterize}"
+  end
+
 end
