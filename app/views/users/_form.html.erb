@@ -4,7 +4,7 @@
   <%= f.label :username%>
   <%= f.text_field :username %>
 
-  <%= f.label :password, params[:action]=='edit'? 'Change password' : 'Password' %>
+  <%= f.label :password, ['edit','update'].include?(params[:action]) ? 'Change password' : 'Password' %>
   <%= f.password_field :password %>
   <br />
   <%= f.submit "Submit", class:"btn btn-primary" %>
