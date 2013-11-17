@@ -7,5 +7,16 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates :password, presence: true, on: :create, length: { minimum: 6 }
-  validates :password, on: :update,length: { minimum: 6 }
+  validates_length_of :password, minimum: 6, on: :update, allow_blank: true
+
+  before_save :generate_slug
+
+  def to_param
+    self.slug
+  end
+
+  def generate_slug
+    self.slug = self.username.parameterize
+  end
+
 end

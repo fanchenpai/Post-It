@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(slug: params[:id])
   end
 
   def new
@@ -18,7 +18,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "Your account has been created. Welcome aboard!"
-      redirect_to login_path
+      session[:user_id] = @user.id
+      redirect_to posts_path
     else
       render :new
     end

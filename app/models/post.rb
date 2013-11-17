@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   has_many :votes, as: :votable
 
   validates :title, presence: true
-  validates :url, presence: true
+  validates :url, presence: true, uniqueness: { case_sensitive: false }
   before_save :generate_slug
 
   def to_param
