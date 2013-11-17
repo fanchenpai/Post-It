@@ -1,5 +1,5 @@
 <h4>User Profile</h4>
-<b>Username: </b><%= current_user.username %>
+<b>Username: </b><%= @user.username %>
 
 <hr />
 
@@ -14,13 +14,13 @@
 
 <div id="profile-tab-content" class="tab-content">
   <div id="post-content" class="tab-pane in active">
-    <% current_user.posts.each do |post| %>
+    <% @user.posts.each do |post| %>
       <%= render 'posts/post_block', post: post %>
     <% end %>
   </div>
 
   <div id="comment-content" class="tab-pane">
-    <%= render current_user.comments, show_post_title: true%>
+    <%= render @user.comments, show_post_title: true%>
   </div>
 
 </div>
