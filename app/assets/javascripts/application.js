@@ -18,4 +18,10 @@
 
 $(document).ready(function(){
   $('.dropdown-toggle').dropdown();
+  $('#profile-tab a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  })
+
 });
+

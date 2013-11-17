@@ -3,12 +3,24 @@
 
 <hr />
 
-<h3>Posts</h3>
-<% current_user.posts.each do |post| %>
-  <%= render 'posts/post_block', post: post %>
-<% end %>
+<ul id="profile-tab" class="nav nav-tabs">
+  <li class="active">
+    <a data-toggle="tab" href="#post-content">Posts</a>
+  </li>
+  <li>
+    <a data-toggle="tab" href="#comment-content">Comments</a>
+  </li>
+</ul>
 
-<hr />
+<div id="profile-tab-content" class="tab-content">
+  <div id="post-content" class="tab-pane in active">
+    <% current_user.posts.each do |post| %>
+      <%= render 'posts/post_block', post: post %>
+    <% end %>
+  </div>
 
-<h3>Comments</h3>
-<%= render current_user.comments, show_post_title: true%>
+  <div id="comment-content" class="tab-pane">
+    <%= render current_user.comments, show_post_title: true%>
+  </div>
+
+</div>
