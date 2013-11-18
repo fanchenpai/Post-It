@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
     self.slug = self.username.parameterize
   end
 
+  def admin?
+    self.role == 'admin'
+  end
+
 end
