@@ -1,14 +1,17 @@
 <% if logged_in? %>
   <div>
-    <%= link_to link_up, method: 'post', class: 'btn btn-mini' do %>
+    <%= link_to link_up, method: 'post', remote: true, class: 'btn btn-mini' do %>
       <i class="icon-chevron-up"></i>
     <% end %>
   </div>
 <% end %>
-<%= pluralize(count_votes(votes), 'vote') %>
+<div id="<%= vote_box_id %>">
+  <%= pluralize(count_votes(votes), 'vote') %>
+</div>
+
 <% if logged_in? %>
   <div>
-    <%= link_to link_down, method: 'post', class: 'btn btn-mini' do %>
+    <%= link_to link_down, method: 'post', remote: true, class: 'btn btn-mini' do %>
       <i class="icon-chevron-down"></i>
     <% end %>
   </div>

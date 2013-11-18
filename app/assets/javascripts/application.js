@@ -22,6 +22,12 @@ $(document).ready(function(){
     e.preventDefault();
     $(this).tab('show');
   })
-
 });
 
+var PostIt = {
+  showModal: function(title,msg) {
+    $('#modal-box-title').html(title);
+    $('#modal-box-body').html(msg);
+    $('#modal-box').modal('show');
+  }
+}

@@ -1,0 +1,6 @@
+<% if @vote_valid %>
+  $('#comment_<%= @comment.id %>_votes').html('<%= pluralize(count_votes(@comment.votes), 'vote') %>');
+  PostIt.showModal('Success','<%= @success_msg %>');
+<% else %>
+  PostIt.showModal('Error','<%= @error_msg %>');
+<% end %>

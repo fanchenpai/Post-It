@@ -5,10 +5,10 @@
 
 <ul id="profile-tab" class="nav nav-tabs">
   <li class="active">
-    <a data-toggle="tab" href="#post-content">Posts</a>
+    <a data-toggle="tab" href="#post-content">Posts (<%= @user.posts.size %>)</a>
   </li>
   <li>
-    <a data-toggle="tab" href="#comment-content">Comments</a>
+    <a data-toggle="tab" href="#comment-content">Comments (<%= @user.comments.size %>)</a>
   </li>
 </ul>
 

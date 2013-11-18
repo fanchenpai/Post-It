@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
+      @category.generate_slug.save
       flash[:notice] = "New category was created."
       redirect_to posts_path
     else

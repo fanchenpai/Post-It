@@ -18,6 +18,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.creator = @current_user
     if @post.save
+      @post.generate_slug.save
       flash[:notice] = "Your post was created."
       redirect_to posts_path
     else
@@ -31,6 +32,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
+      @post.generate_slug.save
       flash[:notice] = "Your post was modified."
       redirect_to posts_path
     else
@@ -40,12 +42,21 @@ class PostsController < ApplicationController
 
   def vote
     vote = Vote.create(vote: params[:vote], creator: current_user, votable: @post)
-    if vote.valid?
-      flash[:notice] = "Your vote is counted."
-    else
-      flash[:error] = "You can only vote for this post once."
+    @vote_valid = vote.valid?
+    @success_msg = "Your vote is counted."
+    @error_msg = "You can only vote for this post once."
+    respond_to do |format|
+      format.html {
+        if @vote_valid
+          flash[:notice] = @success_msg
+        else
+          flash[:error] = @error_msg
+        end
+        redirect_to :back
+      }
+
+      format.js
     end
-    redirect_to :back
   end
 
   ### TO-DO: getter for post.creator.username

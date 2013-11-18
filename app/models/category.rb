@@ -4,14 +4,13 @@ class Category < ActiveRecord::Base
 
   validates :name, presence: true
 
-  before_save :generate_slug
-
   def to_param
     self.slug
   end
 
   def generate_slug
     self.slug = "#{self.id}-#{self.name.parameterize}"
+    self
   end
 
 end
