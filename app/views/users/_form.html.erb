@@ -3,9 +3,10 @@
 <%= form_for @user do |f| %>
   <%= f.label :username%>
   <%= f.text_field :username %>
-
   <%= f.label :password, ['edit','update'].include?(params[:action]) ? 'Change password' : 'Password' %>
   <%= f.password_field :password %>
+  <%= f.label :time_zone %>
+  <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, default: 'Pacific Time (US & Canada)', include_blank: true %>
   <br />
   <%= f.submit "Submit", class:"btn btn-primary" %>
 <% end %>

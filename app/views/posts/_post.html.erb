@@ -6,4 +6,5 @@
 <div>
   -- by <%= link_to post.creator.username, profile_path(post.creator) %>
   <em><%= time_ago_in_words(post.updated_at) %> ago</em>
+  <small class="muted">(<%= display_datetime(post.updated_at) %>)</small>
 </div>

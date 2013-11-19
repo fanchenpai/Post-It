@@ -1,5 +1,14 @@
 <h4>User Profile</h4>
-<b>Username: </b><%= @user.username %>
+<table>
+  <tr>
+    <th align="right">Username: </th>
+    <td><%= @user.username %></td>
+  </tr>
+  <tr>
+    <th align="right">Time Zone: </th>
+    <td><%= @user.time_zone %></td>
+  </tr>
+</table>
 
 <hr />
 
