@@ -5,8 +5,8 @@
     <% end %>
   </div>
 <% end %>
-<div id="<%= vote_box_id %>">
-  <%= pluralize(count_votes(votes), 'vote') %>
+<div id="<%= "#{obj.class}_#{obj.id}_votes" %>">
+  <%= pluralize(count_votes(obj.votes), 'vote') %>
 </div>
 
 <% if logged_in? %>

@@ -30,7 +30,10 @@ class CommentsController < ApplicationController
         redirect_to :back
       }
 
-      format.js
+      format.js {
+        @obj = @comment
+        render 'shared/vote'
+      }
     end
   end
 

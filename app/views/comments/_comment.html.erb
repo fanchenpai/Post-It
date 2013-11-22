@@ -3,8 +3,7 @@
     <%= render 'shared/vote_block',
           link_up: vote_post_comment_path(comment.post, comment, vote: true),
           link_down: vote_post_comment_path(comment.post, comment, vote: false),
-          vote_box_id: "comment_#{comment.id}_votes",
-          votes: comment.votes  %>
+          obj: comment  %>
   </div>
   <div class="well span7">
     <div>

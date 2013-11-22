@@ -63,7 +63,10 @@ class PostsController < ApplicationController
         redirect_to :back
       }
 
-      format.js
+      format.js {
+        @obj = @post
+        render 'shared/vote'
+      }
     end
   end
 
