@@ -4,10 +4,18 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    respond_to do |format|
+      format.html
+      format.any(:xml, :json) { render request.format.to_sym => @posts }
+    end
   end
 
   def show
     @comment = Comment.new
+    respond_to do |format|
+      format.html
+      format.any(:xml, :json) { render request.format.to_sym => @post }
+    end
   end
 
   def new
